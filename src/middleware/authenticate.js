@@ -1,5 +1,7 @@
 // middleware/decodeToken.js
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
 const { promisify } = require('util');
 
 const verifyToken = promisify(jwt.verify);
@@ -12,7 +14,7 @@ const authenticate = async (req, res, next) => {
   }
 
   try {
-    const decoded = await verifyToken(token, 'jwt_secret');
+    const decoded = await verifyToken(token, process.env.JWT_SECRET);
     req.user = decoded; // Set the decoded information in req.user
     next();
   } catch (error) {
