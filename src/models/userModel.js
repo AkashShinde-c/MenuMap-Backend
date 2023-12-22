@@ -1,6 +1,4 @@
- 
-const { Decimal128 } = require('mongodb');
-const mongoose = require('mongoose');
+  const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     username:String,
@@ -11,7 +9,8 @@ const userSchema = new mongoose.Schema({
     mess_name:String,
     owner_name:String,
     default_menu:String,
-    date:String
+    date:String,
+    is_menu_updated:Boolean,
 })
 
 const User = mongoose.model('User',userSchema);
