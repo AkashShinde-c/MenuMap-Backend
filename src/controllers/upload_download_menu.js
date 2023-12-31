@@ -5,13 +5,11 @@ const { putObject, getObjectURL } = require("../utils/awsurlutils");
 const upload_menu = async (req, res) => {
   try {
     const userId = req.user.id;
-
-    const filename = v4();
-    const url = await putObject(`${filename}.jpeg`, "image/jpeg");
+    const url = await putObject(`${userId}.jpeg`, "image/jpeg");
     let date = new Date().getDate()+'/'+(new Date().getMonth()+1)+'/'+new Date().getFullYear();
     await User.findByIdAndUpdate(userId, {
-      $set: { menu_image_url: filename,date:date,is_menu_updated:true },
-    });
+      $set: { menu_image_url: userId,date:date,is_menu_updated:true },
+    });  
     res.status(200).json({ url: url, message: "Created an upload url" });
   } catch (error) {}
 };
