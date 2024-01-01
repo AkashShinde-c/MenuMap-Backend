@@ -20,7 +20,7 @@ app.use("/", routes);
 
 // Start the server
  
-      app.listen(port);
+      app.listen(process.env.PORT||80,'0.0.0.0');
       console.log("Server is running", port);
  
 
