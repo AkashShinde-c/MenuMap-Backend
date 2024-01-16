@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     default_menu:String,
     date:String,
     is_menu_updated:Boolean,
+    last_updated:String
 })
 
 const User = mongoose.model('User',userSchema);

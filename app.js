@@ -19,9 +19,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/", routes);
 
 // Start the server
- 
+       
       app.listen(process.env.PORT||80,'0.0.0.0');
-      console.log("Server is running", port);
+      console.log("Server is running", process.env.PORT);
  
 
   
