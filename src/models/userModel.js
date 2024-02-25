@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     mess_name:String,
     owner_name:String,
     default_menu:String,
-    date:String,
+    date:  Date,
     is_menu_updated:Boolean,
     last_updated:String
 })

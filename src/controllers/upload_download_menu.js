@@ -8,7 +8,7 @@ const upload_menu = async (req, res) => {
     const userId = req.user.id;
     const url = await putObject(`${userId}.jpeg`, "image/jpeg");
     const date = new Date();
-    
+    console.log(date)
     const last_updated = moment().format('DD/MM hh:mm a'); 
     await User.findByIdAndUpdate(userId, {
       $set: { menu_image_url: userId,date:date,is_menu_updated:true,last_updated:last_updated },
